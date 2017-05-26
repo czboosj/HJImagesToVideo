@@ -364,8 +364,10 @@ BOOL const DefaultTransitionShouldAnimate = YES;
     while (!writerInput.readyForMoreMediaData) {
         usleep(1);
     }
+     BOOL isbool = [adaptor appendPixelBuffer:buffer withPresentationTime:presentTime];
+    CVPixelBufferRelease(buffer);
+    return isbool;
     
-    return [adaptor appendPixelBuffer:buffer withPresentationTime:presentTime];
 }
 
 
